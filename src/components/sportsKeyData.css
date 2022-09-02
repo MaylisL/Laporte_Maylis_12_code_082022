@@ -1,0 +1,55 @@
+.sportsKey-data-container {
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.key-data-box {
+    background-color: #FBFBFB;
+    box-shadow:  0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    border-radius: 5px;
+    padding-inline: 30px;
+    display: flex;
+    gap: 25px;
+    width: 258px;
+    height: 124px;
+    
+}
+.number {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    color: #282D30;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.title {
+    color: #74798C;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 2px;
+    margin-bottom: 0;
+}
+.image {
+    align-self: center;
+}
+img {
+    width: 60px;
+    height: 60px;
+}
+.data {
+    text-align: left;
+    align-self: center;
+}
+
+@media screen  and (max-width:  1370px) {
+    .sportsKey-data-container {
+        flex-direction: row;
+        gap: 0;
+        justify-content: space-around;
+        row-gap: 30px;
+    }
+}

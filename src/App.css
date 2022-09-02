@@ -1,3 +1,36 @@
 .App {
   text-align: center;
 }
+
+.chartWrapperColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-container {
+  display: flex;
+  gap: 50px;
+  margin-bottom:90px;
+}
+main {
+  display: flex;
+}
+.center-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 50px;
+}
+.chartWrapperTwo  {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+
+}
+
+@media screen  and (max-width:  1370px) {
+  .dashboard-container {
+      flex-direction: column-reverse;
+  }
+}
+
