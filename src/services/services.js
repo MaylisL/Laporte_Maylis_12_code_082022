@@ -1,7 +1,8 @@
 import axios from "axios";
 import { mockActivity, mockAverageSession, mockPerformance, mockUserData } from "./mockData";
 
-// we can change switch between "mock" and "api"
+
+// SWITCH_VARIABLE can be change to either "mock" for mock  data or "api" for api data
 const SWITCH_VARIABLE = "mock"
 
 /**

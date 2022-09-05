@@ -7,7 +7,7 @@ export default function AppRouter() {
         <BrowserRouter>
             <Switch>
                 <Route exact path="/">
-                    <Redirect to="/dashboard/18" />
+                    <Redirect to="/dashboard/12" />
                 </Route>
                 <Route path="/dashboard/:id">
                     <App />
