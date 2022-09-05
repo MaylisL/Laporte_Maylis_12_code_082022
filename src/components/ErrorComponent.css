@@ -1,0 +1,12 @@
+.error-container {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.error {
+    margin: auto;
+    padding: 50px;
+    box-shadow: 1px 4px 8px 4px rgb(62, 62, 62);;
+}

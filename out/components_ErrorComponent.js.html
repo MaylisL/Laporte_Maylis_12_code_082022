@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/NavbarHorizontal.js</title>
+    <title>JSDoc: Source: components/ErrorComponent.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/NavbarHorizontal.js</h1>
+    <h1 class="page-title">Source: components/ErrorComponent.js</h1>
 
     
 
@@ -26,28 +26,38 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import './navbarHorizontal.css'
-import logo from '../assets/logo.png'
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import './ErrorComponent.css';
 
 /**
- * this function  is returning the main html navbar component
+ * this component returns error depending on the error object
+ * @param {object} error
  * @returns {React.ComponentElement}
  */
-function NavbarHorizontal() {
+export default function ErrorComponent({ error }) {
+  if(error &amp;&amp; error.response &amp;&amp; error.response.status) {
     return (
-        &lt;div className="navbar_horizontal_container">
-            &lt;img className="logo" src={logo} alt="">&lt;/img>
-            &lt;ul className='menu'>
-                &lt;li>Accueil&lt;/li>
-                &lt;li>Profil&lt;/li>
-                &lt;li>Réglage&lt;/li>
-                &lt;li>Communauté&lt;/li>
-            &lt;/ul>
+      &lt;div className='error-container'>
+        &lt;div className='error'>
+          &lt;h1>{error.response.status} - {error.response.statusText}&lt;/h1>
+          &lt;h2>{error.response.data}&lt;/h2>
         &lt;/div>
+      &lt;/div>
+  
     )
+  } else {
+    return (
+      &lt;div className='error-container'>
+        &lt;div className='error'>
+          &lt;h1>503 Service Unavailable&lt;/h1>
+          &lt;h2>The server is temporarily unavailable&lt;/h2>
+        &lt;/div>
+      &lt;/div>
+    )
+  }
+  
 }
-
-export default NavbarHorizontal;</code></pre>
+</code></pre>
         </article>
     </section>
 

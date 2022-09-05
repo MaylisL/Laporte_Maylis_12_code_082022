@@ -37,91 +37,90 @@ import PropTypes from 'prop-types';
  * @returns a legend  with a different color
  */
 function customLegendFormat(value) {
-    return ((&lt;span style={{ color:"#20253A" }}>{value}&lt;/span>))
-  }
+  return ((&lt;span style={{ color: "#20253A" }}>{value}&lt;/span>))
+}
 
-  /**
-   * This  function returns a custom shape for the text inside the pie chart
-   * @param {object} props property provided by recharts
-   * @returns a text inside the pie chart
-   */
+/**
+ * This  function returns a custom shape for the text inside the pie chart
+ * @param {object} props property provided by recharts
+ * @returns a text inside the pie chart
+ */
 function renderActiveShape(props) {
-  const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill, payload} = props;
-   
-  
-    return (
-      &lt;g>
-        &lt;text x={cx} y={cy} dy={8} textAnchor="middle" fill={"#282D30"} fontSize={26} fontWeight={500}>
-           {payload.value}%
-        &lt;/text>
-        &lt;text className="description-text" x={cx} y={cy} dy={30} textAnchor="middle" fill={"#74798C"} fontSize={20}>de votre&lt;/text>
-        &lt;text className="description-text" x={cx} y={cy} dy={55} textAnchor="middle" fill={"#74798C"} fontSize={20}>objectif&lt;/text>
-        &lt;Sector
-          cx={cx}
-          cy={cy}
-          innerRadius={innerRadius}
-          outerRadius={outerRadius}
-          startAngle={startAngle}
-          endAngle={endAngle}
-          fill={fill}
-          cornerRadius={10}
-        />
-      &lt;/g>
-    );
-  };
-  
+  const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill, payload } = props;
+
+
+  return (
+    &lt;g>
+      &lt;text x={cx} y={cy} dy={8} textAnchor="middle" fill={"#282D30"} fontSize={26} fontWeight={500}>
+        {payload.value}%
+      &lt;/text>
+      &lt;text className="description-text" x={cx} y={cy} dy={30} textAnchor="middle" fill={"#74798C"} fontSize={20}>de votre&lt;/text>
+      &lt;text className="description-text" x={cx} y={cy} dy={55} textAnchor="middle" fill={"#74798C"} fontSize={20}>objectif&lt;/text>
+      &lt;Sector
+        cx={cx}
+        cy={cy}
+        innerRadius={innerRadius}
+        outerRadius={outerRadius}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        fill={fill}
+        cornerRadius={10}
+      />
+    &lt;/g>
+  );
+};
+
 /**
  * this function returns a pie chart component
  * @param {object} props 
  * @param {number} props.data a number representing a score that is required
  * @returns {React.ComponentElement} a pie chart representing the score number
  */
- function ChartScore(props) {
+function ChartScore(props) {
 
-    const x = props.data * 100;
-    const data = [
-      { name: "Score", value: x },
-      { name: "", value: 100-x },
-    
-    ];
-    const COLORS = ["red","#FBFBFB"];
+  const x = props.data * 100;
+  const data = [
+    { name: "Score", value: x },
+    { name: "", value: 100 - x },
 
-    return (
-        &lt;div className="chart-score-container">
-           
-                &lt;PieChart width={258} height={263} className='background-pie'> 
-                    &lt;Legend formatter={customLegendFormat}  wrapperStyle={{fontSize: "15px", fontFamily:"Roboto"}} verticalAlign="top"  align='left' iconType=''  iconSize={0} height={50} />
-                    &lt;Pie
-                        data={data}
-                        cx={120}
-                        cy={80}
-                        activeIndex={0}
-                        activeShape={renderActiveShape}
-                        startAngle={90}
-                        endAngle={360+90}
-                        innerRadius={70}
-                        outerRadius={80}
-                        paddingAngle={0}
-                        dataKey="value"
-                        stroke="none"
-                    >
-                        {data.map((entry, index) => (
-                        &lt;Cell key={`cell-${index}`} fill={COLORS[index]} />
-                        ))}
-                    &lt;/Pie>
-                &lt;/PieChart>
-           
-        &lt;/div>
+  ];
+  const COLORS = ["red", "#FBFBFB"];
+
+  return (
+    &lt;div className="chart-score-container">
+      &lt;PieChart width={258} height={263} className='background-pie'>
+        &lt;Legend formatter={customLegendFormat} wrapperStyle={{ fontSize: "15px", fontFamily: "Roboto" }} verticalAlign="top" align='left' iconType='' iconSize={0} height={50} />
+        &lt;Pie
+          data={data}
+          cx={120}
+          cy={80}
+          activeIndex={0}
+          activeShape={renderActiveShape}
+          startAngle={90}
+          endAngle={360 + 90}
+          innerRadius={70}
+          outerRadius={80}
+          paddingAngle={0}
+          dataKey="value"
+          stroke="none"
+        >
+          {data.map((entry, index) => (
+            &lt;Cell key={`cell-${index}`} fill={COLORS[index]} />
+          ))}
+        &lt;/Pie>
+      &lt;/PieChart>
+
+    &lt;/div>
   );
 }
 
 ChartScore.propTypes = {
-    data: PropTypes.number.isRequired
-  };
+  data: PropTypes.number.isRequired
+};
 
 
-  export default ChartScore
-   </code></pre>
+export default ChartScore
+</code></pre>
         </article>
     </section>
 
@@ -137,7 +136,7 @@ ChartScore.propTypes = {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Wed Aug 31 2022 12:48:50 GMT+0200 (heure d’été d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Sep 05 2022 19:55:19 GMT+0200 (heure d’été d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

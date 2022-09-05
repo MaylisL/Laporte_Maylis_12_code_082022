@@ -10,6 +10,8 @@ import SportsKeyData from './components/SportsKeyData';
 import React from 'react';
 import { getUserActivity, getUserAverageSession, getUserPerformance, getUserData } from './services/services.js';
 import { withRouter } from "react-router-dom";
+import ErrorComponent from './components/ErrorComponent';
+
 
 /**
  * App - main component that returns the navigation and the dashboard with all the charts
@@ -66,12 +68,7 @@ class App extends React.Component {
     if (this.state.loading) {
       return <div>chargement en cours...</div>
     } else if (this.state.error) {
-      return (
-        <div>
-          <h1>Oops something went wrong!</h1>
-          <h2>the  server  might be down ...</h2>
-        </div>
-      )
+      return <ErrorComponent error={this.state.error} />
     } else {
       return (
         <div className="App">

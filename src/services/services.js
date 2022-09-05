@@ -1,17 +1,20 @@
 import axios from "axios";
 import { mockActivity, mockAverageSession, mockPerformance, mockUserData } from "./mockData";
 
+// we can change switch between "mock" and "api"
+const SWITCH_VARIABLE = "mock"
+
 /**
- * 
- * @param {string} id Id  of the  user  (can  provide "mock" to get  mock data)
+ * will call api or return mock data depending on SWITCH_VARIABLE
+ * @param {string} id Id of the  user
  * @returns {promise} either getting data or error
  */
 export function getUserData(id) {
-    if(id === 'mock') {
+    if(SWITCH_VARIABLE === 'mock') {
         return new Promise((resolve, reject) =>  {
             resolve(mockUserData)
         })
-    } else  {   
+    } else if(SWITCH_VARIABLE === 'api') {   
   return axios.get(`http://localhost:3000/user/${id}`)
     .then(response => {
         return response.data.data
@@ -23,16 +26,16 @@ export function getUserData(id) {
 }
 
 /**
- * 
- * @param {string} id Id  of the  user  (can  provide "mock" to get  mock data)
+ * will call api or return mock data depending on SWITCH_VARIABLE
+ * @param {string} id Id  of the  user
  * @returns {promise} either getting data or error
  */
 export function getUserActivity(id) {
-    if(id === 'mock') {
+    if(SWITCH_VARIABLE === 'mock') {
         return new Promise((resolve, reject) =>  {
             resolve(mockActivity)
         })
-    }  else {
+    }  else if(SWITCH_VARIABLE === 'api') {
         return axios.get(`http://localhost:3000/user/${id}/activity`)
         .then(response => {
             return response.data.data
@@ -44,16 +47,16 @@ export function getUserActivity(id) {
 }
 
 /**
- * 
- * @param {string} id Id  of the  user  (can  provide "mock" to get  mock data)
+ * ill call api or return mock data depending on SWITCH_VARIABLE
+ * @param {string} id Id  of the  user
  * @returns {promise} either getting data or error
  */
 export function getUserPerformance(id) {
-    if(id === 'mock') {
+    if(SWITCH_VARIABLE === 'mock') {
         return new Promise((resolve, reject) => {
             resolve(mockPerformance)
         })
-    } else {
+    } else if(SWITCH_VARIABLE === 'api')  {
         return axios.get(`http://localhost:3000/user/${id}/performance`)
         .then(response => {
             return response.data.data
@@ -64,16 +67,16 @@ export function getUserPerformance(id) {
 }
 
 /**
- * 
- * @param {string} id Id  of the  user  (can  provide "mock" to get  mock data)
+ * ill call api or return mock data depending on SWITCH_VARIABLE
+ * @param {string} id Id  of the  user
  * @returns {promise} either getting data or error
  */
 export function getUserAverageSession(id) {
-    if(id === 'mock') {
+    if(SWITCH_VARIABLE === 'mock') {
         return new Promise((resolve, reject) => {
             resolve(mockAverageSession)
         })
-    } else {
+    } else if(SWITCH_VARIABLE === 'api') {
         return axios.get(`http://localhost:3000/user/${id}/average-sessions`)
         .then(response => {
             return response.data.data
